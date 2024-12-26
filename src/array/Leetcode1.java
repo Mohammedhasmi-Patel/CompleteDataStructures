@@ -2,7 +2,7 @@ package array;
 
 import java.util.HashMap;
 
-
+// medium
 public class Leetcode1 {
 
     // this is bruteforce solution O(n*n)
