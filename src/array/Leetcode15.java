@@ -10,23 +10,22 @@ public class Leetcode15 {
         }
         Arrays.sort(nums);
         for (int i = 0; i < n; i++) {
-            // avoiding duplicate as well
+            // avoiding duplicate as an fix value
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
 
             int fixValue = nums[i];
-            int target = -fixValue;
             int start = i + 1;
             int end = n - 1;
 
 
             while (start < end) {
-                if (nums[start] + nums[end] > target) {
+                if (nums[start] + nums[end] > (-fixValue)) {
                     end--;
-                } else if (nums[start] + nums[end] < target) {
+                } else if (nums[start] + nums[end] < (-fixValue)) {
                     start++;
-                } else { // equal
+                } else if(nums[start] + nums[end]==(-fixValue)) { // equal
                     // remove duplicate first
                     while (start < end && nums[start] == nums[start + 1]) start++;
                     while (start < end && nums[end] == nums[end - 1]) end--;
